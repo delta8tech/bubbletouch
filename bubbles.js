@@ -36,8 +36,8 @@ function PointCollection() {
  
         for (var i = 0; i < this.points.length; i++) {
             var point = this.points[i];
-            var dx = this.mousePos.x - point.curPos.x;
-            var dy = this.mousePos.y - point.curPos.y;
+            var dx = this.touchPos.x - point.curPos.x;
+            var dy = this.touchPos.y - point.curPos.y;
             var dd = (dx * dx) + (dy * dy);
             var d = Math.sqrt(dd);
             if (d < 50) {
@@ -142,7 +142,7 @@ function phraseToHex(phrase) {
 }
  
 function initEventListeners() {
-    $(window).bind('resize', updateCanvasDimensions).bind('mousemove', onMove);
+    $(window).bind('resize', updateCanvasDimensions).bind('touchmove', onMove);
  
     canvas.ontouchmove = function (e) {
         e.preventDefault();
